@@ -14,7 +14,7 @@ class GoogleMapPage extends StatefulWidget {
 }
 
 class _GoogleMapPageState extends State<GoogleMapPage> {
-  double latitudeData=24.07210;
+  double latitudeData = 24.07210;
   double longitudeData = 90.34817;
 
   @override
@@ -24,10 +24,11 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   }
 
   late GoogleMapController mapController;
-    // LatLng _center =  LatLng(latitudeData, longitudeData);
+  // LatLng _center =  LatLng(latitudeData, longitudeData);
 
   void getCurrentLocation() async {
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
 
     setState(() {
       latitudeData = position.latitude;
@@ -44,6 +45,7 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("Google Map Location"),
